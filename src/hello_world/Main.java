@@ -12,7 +12,7 @@ public class Main {
         MINUS,
         DIV,
         MULT,
-//        PERCENT,
+        PERCENT,
         NONE
     }
 
@@ -83,8 +83,8 @@ public class Main {
                     operation.type = Operators.DIV;
                 } else if (c == '*') {
                     operation.type = Operators.MULT;
-//                } else if (c == '%') {
-//                    operation.type = Operators.PERCENT;
+                } else if (c == '%') {
+                    operation.type = Operators.PERCENT;
                 }
 
                 operation.left = Integer.parseInt(expr.substring(0, i));
@@ -103,8 +103,8 @@ public class Main {
             operation.result = operation.left / operation.right;
         } else if (operation.type == Operators.MULT) {
             operation.result = operation.left * operation.right;
-//        } else if (operation.type == Operators.PERCENT) {
-//            operation.result = operation.left / operation.right * 100;
+        } else if (operation.type == Operators.PERCENT) {
+            operation.result = operation.left / operation.right * 100;
         }
 
         System.out.println(String.format("result = %f", operation.result));
