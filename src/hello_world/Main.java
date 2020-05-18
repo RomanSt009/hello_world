@@ -1,6 +1,7 @@
 package hello_world;
 
 import com.sun.org.apache.xml.internal.utils.XMLCharacterRecognizer;
+import com.sun.org.apache.xpath.internal.operations.Operation;
 
 import java.util.List;
 import java.util.Scanner;
@@ -11,6 +12,7 @@ public class Main {
         MINUS,
         DIV,
         MULT,
+//        PERCENT,
         NONE
     }
 
@@ -81,6 +83,8 @@ public class Main {
                     operation.type = Operators.DIV;
                 } else if (c == '*') {
                     operation.type = Operators.MULT;
+//                } else if (c == '%') {
+//                    operation.type = Operators.PERCENT;
                 }
 
                 operation.left = Integer.parseInt(expr.substring(0, i));
@@ -99,6 +103,8 @@ public class Main {
             operation.result = operation.left / operation.right;
         } else if (operation.type == Operators.MULT) {
             operation.result = operation.left * operation.right;
+//        } else if (operation.type == Operators.PERCENT) {
+//            operation.result = operation.left / operation.right * 100;
         }
 
         System.out.println(String.format("result = %f", operation.result));
